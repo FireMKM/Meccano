@@ -4,20 +4,23 @@
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); // Declare the device
 Adafruit_DCMotor *myMotor = AFMS.getMotor(1);
 
-int led1 = 6;
 int capteur = 4;
 
 void setup()
 {
   AFMS.begin();
   myMotor->setSpeed(150);
-  pinMode(led1, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(3, OUTPUT);
   pinMode(capteur, INPUT);
 }
 
 void loop()
 {
   int d = lire_distance(capteur);
+  digitalWrite(6
+  , d < 20);
+  digitalWrite(3, d < 10);
   if (d < 10) {
     myMotor->run(BACKWARD);
   }
