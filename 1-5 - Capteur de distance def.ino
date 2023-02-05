@@ -1,16 +1,19 @@
 int led1 = 6;
+int led2 = 7;
 int capteur = 4;
 
 void setup()
 {
   pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
   pinMode(capteur, INPUT);
 }
 
 void loop()
 {
   int d = lire_distance(capteur);
-  digitalWrite(led1, d < 40);
+  digitalWrite(led1, d < 10);
+  digitalWrite(led2, d < 20);
 }
 
 int lire_distance(int numero_broche) {
