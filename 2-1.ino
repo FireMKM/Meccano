@@ -11,21 +11,28 @@ void setup()
   AFMS.begin();
   myMotor->setSpeed(150);
   pinMode(6, OUTPUT);
-  pinMode(3, OUTPUT);
+  pinMode(7, OUTPUT);
   pinMode(capteur, INPUT);
+  pinMode(3, INPUT);
 }
 
 void loop()
 {
-  int d = lire_distance(capteur);
-  digitalWrite(6
-  , d < 20);
-  digitalWrite(3, d < 10);
-  if (d < 10) {
-    myMotor->run(BACKWARD);
+  if (digitalRead(3)) {
+   int d = lire_distance(capteur);
+    digitalWrite(7, d < 20);
+    digitalWrite(6, d < 10);
+    if (d < 10) {
+      myMotor->run(RELEASE);
+    }
+    else {
+      myMotor->run(FORWARD);
+    } 
   }
   else {
-    myMotor->run(FORWARD);
+    myMotor->run(RELEASE);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
   }
 }
 
