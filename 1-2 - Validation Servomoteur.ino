@@ -1,4 +1,4 @@
-// Test program for the servo
+// Programme de test pour le servomoteur 
 
 #include <Servo.h>
 
