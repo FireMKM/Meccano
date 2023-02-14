@@ -1,3 +1,5 @@
+// Programme de test pour le capteur de distance
+
 int led1 = 6;
 int led2 = 7;
 int capteur = 4;
