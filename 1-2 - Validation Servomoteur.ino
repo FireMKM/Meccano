@@ -1,3 +1,5 @@
+// Test program for the servo
+
 #include <Servo.h>
 
 const int PIN_SERVO = 8;
